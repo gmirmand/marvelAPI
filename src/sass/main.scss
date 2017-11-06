@@ -6,6 +6,26 @@
 }
 
 body {
+  color: white;
+  background-color: #2d2d2d;
+  font-family: 'Arial', serif;
+  padding: 50px;
+  .search {
+    position: relative;
+    #proposals {
+      background-color: #fff;
+      color: black;
+      position: absolute;
+      .proposal {
+        display: block;
+        transition: 0.33s;
+        &:hover {
+          background-color: #ddd;
+          cursor: pointer;
+        }
+      }
+    }
+  }
 }
 
 .footer {

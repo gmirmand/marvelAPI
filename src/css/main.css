@@ -3,37 +3,19 @@
   padding: 0; }
 
 body {
-  background-color: #222222; }
-  body .header {
-    display: flex;
-    background-color: #fafafa; }
-  body .main {
-    max-width: 1024px;
-    margin: 0 auto; }
-    body .main .top-content {
-      display: flex; }
-    body .main .slider {
-      text-align: center; }
-      body .main .slider .slide {
-        min-height: 50px;
-        background-color: lightgray; }
-        body .main .slider .slide img {
-          width: 100%; }
-    body .main .content {
-      display: flex;
-      justify-content: flex-start;
-      align-content: flex-start;
-      flex-wrap: wrap; }
-      body .main .content .item {
-        flex-basis: 33%;
-        background-color: darkred;
-        border: 1px solid black; }
-    body .main .comment {
-      display: flex; }
-      body .main .comment .item {
-        flex-basis: 50%;
-        display: flex; }
-
-.footer {
   color: white;
-  background-color: darkcyan; }
+  background-color: #2d2d2d;
+  font-family: 'Arial', serif;
+  padding: 50px; }
+  body .search {
+    position: relative; }
+    body .search #proposals {
+      background-color: #fff;
+      color: black;
+      position: absolute; }
+      body .search #proposals .proposal {
+        display: block;
+        transition: 0.33s; }
+        body .search #proposals .proposal:hover {
+          background-color: #ddd;
+          cursor: pointer; }
