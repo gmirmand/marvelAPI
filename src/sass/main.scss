@@ -1,4 +1,6 @@
 @import 'variables';
+@import url(https://fonts.googleapis.com/css?family=Arvo:700);
+@import url(https://fonts.googleapis.com/css?family=Seaweed+Script);
 
 * {
   margin: 0;
@@ -6,26 +8,126 @@
 }
 
 body {
-  color: white;
-  background-color: #2d2d2d;
-  font-family: 'Arial', serif;
-  padding: 50px;
-  .search {
-    position: relative;
-    #proposals {
-      background-color: #fff;
-      color: black;
-      position: absolute;
-      .proposal {
-        display: block;
-        transition: 0.33s;
-        &:hover {
-          background-color: #ddd;
-          cursor: pointer;
-        }
+  background-color: #5a5a5a;
+  transition: 0.5s;
+  .container {
+    color: white;
+    background-color: #222;
+    font-family: 'Arial', serif;
+    padding: 50px;
+    text-align: center;
+    background-size: cover;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 100vh;
+    box-shadow: 12px 0 15px -4px rgba(0, 0, 0, 0.8), -12px 0 8px -4px rgba(0, 0, 0, 0.8);
+    h1 {
+    }
+    .search {
+      position: relative;
+    }
+    .heroes {
+      margin-top: 50px;
+    }
+    #result {
+      background-color: #222;
+      height: auto;
+      transition: 1s;
+      padding: 50px 100px;
+      border: 0;
+      color: white;
+    }
+    .comics {
+      padding: 0 50px 20px;
+      margin: 0 auto;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      border-top: 1px solid white;
+      .txtshadow {
+        text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+      }
+      .more {
+        padding: 20px 40px 15px;
+        margin-bottom: 20px;
+        text-shadow: unset !important;
+        background-color: black;
+        border-bottom: 5px solid #222;
+        color: white;
+        font-size: 18px;
+        font-style: italic;
+      }
+      .dont {
+
       }
     }
   }
+
+  .plate {
+    width: 410px;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+    .script {
+      font-family: "Seaweed Script", serif;
+      color: #fff;
+      text-align: center;
+      font-size: 40px;
+      position: relative;
+      margin: 0;
+    }
+
+    .script span {
+      padding: 0 0.3em;
+    }
+
+    .script:before {
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      width: 100%;
+      border-bottom: 3px solid #fff;
+    }
+
+    .shadow {
+      color: #fff;
+      font-family: Arvo;
+      font-weight: bold;
+      text-shadow: -3px -3px 0 #222,
+      3px -3px 0 #222,
+      -3px 3px 0 #222,
+      3px 3px 0 #222,
+      4px 4px 0 #fff,
+      5px 5px 0 #fff,
+      6px 6px 0 #fff,
+      7px 7px 0 #fff;
+      line-height: 0.8em;
+      letter-spacing: 0.1em;
+      transform: scaleY(0.7);
+      -webkit-transform: scaleY(0.7);
+      -moz-transform: scaleY(0.7);
+      margin: 0;
+      text-align: center;
+    }
+
+    .text1 {
+      font-size: 40px;
+    }
+
+    .text2 {
+      font-size: 100px;
+    }
+
+    .text3 {
+      font-size: 60px;
+    }
+  }
+}
+
+.hide {
+  display: none;
 }
 
 .footer {

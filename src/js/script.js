@@ -1,69 +1,61 @@
 $(document).ready(function () {
-    var val, description, count, name, valclick;
     var $result = $('#result');
     var $search = $('#search');
-    var $propals = $("#proposals");
-    $search.on('input', function () {
-        val = $search.val();
-    });
+    var results;
     $(function () {
+        function log(message) {
+            $("#result").empty().append(message);
+        }
+
         $search.autocomplete({
             source: function (request, response) {
                 $.ajax({
                     type: "GET",
-                    url: "https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=" + val + "&apikey=a46dd2d60494b578a99e8c63c3c76451",
+                    url: "https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=" + $search.val() + "&apikey=a46dd2d60494b578a99e8c63c3c76451",
                     dataType: "json",
                     success: function (data) {
-                        count = data['data']['count'];
-                        if (count === 0) {
-                            $result.empty().append('No match');
-                        }
-                        else {
-                            $propals.empty();
-                            for (var i = 0; i <3; i++){
-                                name = data['data']['results'][i]['name'];
-                                $propals.append("<span value='"+ name +"' class='proposal'>"+ name +"</span>");
-                            }
-                            name = data['data']['results'][0]['name'];
-                            description = data['data']['results'][0]['description'];
-                            $result.empty().append("<h2>" + name + "</h2>", "<p>" + description + "</p>");
-                            setTimeout(function(){
-                                proposal();
-                            }, 300)
-                        }
+                        results = data.data.results;
+                        var name = [];
+                        $.each(results, function (i) {
+                            name.push(results[i].name);
+                        });
+                        response(name);
                     },
                     error: function (e) {
                         $result.empty().append('API Error');
                     }
                 });
             },
-            minLength: 1
+            minLength: 1,
+            select: function (event, ui) {
+                console.log(results);
+                $.each(results, function (i) {
+                    if (results[i].name === ui.item.value) {
+                        if (!results[i].description)
+                            results[i].description = "Désolé, il n'y a pas de description.";
+
+                        //Text and desc
+                        log("<h2 class='script'><span>" + results[i].name + "</span></h2>" +
+                            "<p> " + results[i].description + "</p>");
+                        var img = results[i].thumbnail.path + '.' + results[i].thumbnail.extension;
+                        $('.container').css('background-image', 'url(' + img + ')');
+                        $('#result').css('border-bottom', '5px solid black');
+                        //Comics
+                        if (results[i].comics.items[0]) {
+                            $('.comics').empty().removeClass('hide').append("<p class='more'>" + results[i].name + " apparait dans " + results[i].comics.available + " comics.<br>dont...</p>");
+
+                        }
+                        else
+                            $('.comics').addClass('hide');
+
+                        $.each(results[i].comics.items, function (j) {
+                            $('.comics').append("<p class='txtshadow'><span>" + results[i].comics.items[j].name + "</span></p>");
+                        });
+
+
+                    }
+                });
+            }
         });
     });
-    function proposal(){
-        $(".proposal").on('click', function(){
-            valclick = $(this).text();
-            console.log(valclick);
-            $.ajax({
-                type: "GET",
-                url: "https://gateway.marvel.com:443/v1/public/characters?name=" + valclick + "&apikey=a46dd2d60494b578a99e8c63c3c76451",
-                dataType: "json",
-                success: function (data) {
-                    count = data['data']['count'];
-                    if (count === 0) {
-                        $result.empty().append('No match');
-                    }
-                    else {
-                        $propals.empty();
-                        name = data['data']['results'][0]['name'];
-                        description = data['data']['results'][0]['description'];
-                        $result.empty().append("<h2>" + name + "</h2>", "<p>" + description + "</p>");
-                    }
-                },
-                error: function (e) {
-                    $result.empty().append('API Error');
-                }
-            });
-        });
-    }
 });
