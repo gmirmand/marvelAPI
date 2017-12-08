@@ -9,7 +9,7 @@ body {
   transition: 0.5s; }
   body .container {
     color: white;
-    background-color: #222;
+    background-color: #222222;
     font-family: 'Arial', serif;
     padding: 50px;
     text-align: center;
@@ -23,7 +23,7 @@ body {
     body .container .heroes {
       margin-top: 50px; }
     body .container #result {
-      background-color: #222;
+      background-color: #222222;
       height: auto;
       transition: 1s;
       padding: 50px 100px;
@@ -42,7 +42,7 @@ body {
         margin-bottom: 20px;
         text-shadow: unset !important;
         background-color: black;
-        border-bottom: 5px solid #222;
+        border-bottom: 5px solid #222222;
         color: white;
         font-size: 18px;
         font-style: italic; }
@@ -53,7 +53,7 @@ body {
     margin-bottom: 40px; }
     body .plate .script {
       font-family: "Seaweed Script", serif;
-      color: #fff;
+      color: white;
       text-align: center;
       font-size: 40px;
       position: relative;
@@ -67,12 +67,12 @@ body {
       z-index: -1;
       top: 50%;
       width: 100%;
-      border-bottom: 3px solid #fff; }
+      border-bottom: 3px solid white; }
     body .plate .shadow {
-      color: #fff;
+      color: white;
       font-family: Arvo;
       font-weight: bold;
-      text-shadow: -3px -3px 0 #222, 3px -3px 0 #222, -3px 3px 0 #222, 3px 3px 0 #222, 4px 4px 0 #fff, 5px 5px 0 #fff, 6px 6px 0 #fff, 7px 7px 0 #fff;
+      text-shadow: -3px -3px 0 #222222, 3px -3px 0 #222222, -3px 3px 0 #222222, 3px 3px 0 #222222, 4px 4px 0 white, 5px 5px 0 white, 6px 6px 0 white, 7px 7px 0 white;
       line-height: 0.8em;
       letter-spacing: 0.1em;
       transform: scaleY(0.7);

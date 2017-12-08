@@ -11,8 +11,8 @@ body {
   background-color: #5a5a5a;
   transition: 0.5s;
   .container {
-    color: white;
-    background-color: #222;
+    color: $color-white;
+    background-color:  $color-grey;
     font-family: 'Arial', serif;
     padding: 50px;
     text-align: center;
@@ -30,19 +30,19 @@ body {
       margin-top: 50px;
     }
     #result {
-      background-color: #222;
+      background-color:  $color-grey;
       height: auto;
       transition: 1s;
       padding: 50px 100px;
       border: 0;
-      color: white;
+      color: $color-white;
     }
     .comics {
       padding: 0 50px 20px;
       margin: 0 auto;
       margin-top: 20px;
       margin-bottom: 20px;
-      border-top: 1px solid white;
+      border-top: 1px solid $color-white;
       .txtshadow {
         text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
       }
@@ -51,8 +51,8 @@ body {
         margin-bottom: 20px;
         text-shadow: unset !important;
         background-color: black;
-        border-bottom: 5px solid #222;
-        color: white;
+        border-bottom: 5px solid  $color-grey;
+        color: $color-white;
         font-size: 18px;
         font-style: italic;
       }
@@ -70,7 +70,7 @@ body {
 
     .script {
       font-family: "Seaweed Script", serif;
-      color: #fff;
+      color: $color-white;
       text-align: center;
       font-size: 40px;
       position: relative;
@@ -88,21 +88,21 @@ body {
       z-index: -1;
       top: 50%;
       width: 100%;
-      border-bottom: 3px solid #fff;
+      border-bottom: 3px solid $color-white;
     }
 
     .shadow {
-      color: #fff;
+      color: $color-white;
       font-family: Arvo;
       font-weight: bold;
-      text-shadow: -3px -3px 0 #222,
-      3px -3px 0 #222,
-      -3px 3px 0 #222,
-      3px 3px 0 #222,
-      4px 4px 0 #fff,
-      5px 5px 0 #fff,
-      6px 6px 0 #fff,
-      7px 7px 0 #fff;
+      text-shadow: -3px -3px 0  $color-grey,
+      3px -3px 0  $color-grey,
+      -3px 3px 0  $color-grey,
+      3px 3px 0  $color-grey,
+      4px 4px 0 $color-white,
+      5px 5px 0 $color-white,
+      6px 6px 0 $color-white,
+      7px 7px 0 $color-white;
       line-height: 0.8em;
       letter-spacing: 0.1em;
       transform: scaleY(0.7);
