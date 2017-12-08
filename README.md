@@ -16,4 +16,4 @@ C'est cadeau si jamais :
  > - <i class="icon-link"> https://github.com/gmirmand
  > - <i class="icon-link"> https://www.linkedin.com/in/gmirmand/
 
-![Alt text](src/img/screenshot.png?raw=true "Screenshot Marvel")
+![Screenshot Marvel](src/img/screenshot.png?raw=true "Screenshot Marvel")
