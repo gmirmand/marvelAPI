@@ -1,12 +1,18 @@
 $(document).ready(function () {
     var $result = $('#result');
     var $search = $('#search');
+    var $comics = $('.comics');
+    var $container = $('.container');
     var results;
     $(function () {
+        //Append text
         function log(message) {
-            $("#result").empty().append(message);
+            $result.empty().append(message);
         }
+
+        //Autocomplete
         $search.autocomplete({
+            //get
             source: function (request, response) {
                 $.ajax({
                     type: "GET",
@@ -25,9 +31,9 @@ $(document).ready(function () {
                     }
                 });
             },
-            minLength: 1,
+            minLength: 2,
+            //retrieve+append
             select: function (event, ui) {
-                console.log(results);
                 $.each(results, function (i) {
                     if (results[i].name === ui.item.value) {
                         if (!results[i].description)
@@ -36,17 +42,17 @@ $(document).ready(function () {
                         log("<h2 class='script'><span>" + results[i].name + "</span></h2>" +
                             "<p> " + results[i].description + "</p>");
                         var img = results[i].thumbnail.path + '.' + results[i].thumbnail.extension;
-                        $('.container').css('background-image', 'url(' + img + ')');
-                        $('#result').css('border-bottom', '5px solid black');
+                        $container.css('background-image', 'url(' + img + ')');
+                        $result.css('border-bottom', '5px solid black');
                         //Comics
                         if (results[i].comics.items[0]) {
-                            $('.comics').empty().removeClass('hide').append("<p class='more'>" + results[i].name + " apparait dans " + results[i].comics.available + " comics.<br>dont...</p>");
+                            $comics.empty().removeClass('hide').append("<p class='more'>" + results[i].name + " apparait dans " + results[i].comics.available + " comics.<br>dont...</p>");
                         }
                         else
-                            $('.comics').addClass('hide');
+                            $comics.addClass('hide');
 
                         $.each(results[i].comics.items, function (j) {
-                            $('.comics').append("<p class='txtshadow'><span>" + results[i].comics.items[j].name + "</span></p>");
+                            $comics.append("<p class='txtshadow'><span>" + results[i].comics.items[j].name + "</span></p>");
                         });
                     }
                 });
